@@ -1,0 +1,13 @@
+#!/usr/bin/env fish
+
+# FIXME: find a better way to get currently playing track that does not require polling
+playerctl status > /dev/null 2>&1
+if test $status -eq 0
+  if test (playerctl status) = "Playing"
+    playerctl metadata --format '{{artist}} - {{title}}'
+  else
+    echo
+  end
+else
+  echo
+end

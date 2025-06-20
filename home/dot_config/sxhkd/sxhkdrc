@@ -1,0 +1,54 @@
+# switch desktop
+super + {1-9,0}
+    bspc desktop -f ^{1-9,10}
+
+# move window to desktop
+super + shift + {1-9,0}
+    bspc node -d ^{1-9,10}
+
+# focus window
+super + {Left,Down,Up,Right}
+    bspc node -f {west,south,north,east}
+
+# kill window
+super + c
+	bspc node -c
+
+# toggle between floating
+super + v
+	bspc node -t ~floating
+
+# kill wm
+super + m
+	bspc quit
+
+# reload wm
+super + BackSpace
+	reload
+
+# applications
+super + space
+	rofi -show drun
+
+super + q
+	alacritty
+
+super + w
+	librewolf
+
+super + e
+	codium
+
+# screenshots
+Print
+	maim -s | xclip -selection clipboard -t image/png && notify-send "Maim" "Screenshot copied to clipboard"
+
+shift + Print
+	maim -s ~/pictures/screenshots/$(date +%s).png && notify-send "Maim" "Screenshot saved to gallery"
+
+# media
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+{XF86AudioPrev, XF86AudioNext, XF86AudioPlay, XF86AudioStop}
+    playerctl {previous,next,play-pause,stop}

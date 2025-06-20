@@ -1,0 +1,10 @@
+#!/bin/sh
+
+randomwal
+
+picom --config ~/.config/picom/picom.conf &
+sxhkd &
+dunst &
+polybar &
+
+exec bspwm

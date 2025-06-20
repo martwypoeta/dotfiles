@@ -1,0 +1,5 @@
+encryption = "gpg"
+
+[gpg]
+recipient = "750C383B67F4AC5721AA39F7B137202D04ED2B33"
+args = ["--quiet"]

@@ -1,0 +1,11 @@
+Host codeberg.org
+  HostName codeberg.org
+  User git
+  IdentityFile ~/.ssh/id_ed25519_codeberg
+  IdentitiesOnly yes
+
+Host github.org
+  HostName github.org
+  User git
+  IdentityFile ~/.ssh/id_ed25519_github
+  IdentitiesOnly yes

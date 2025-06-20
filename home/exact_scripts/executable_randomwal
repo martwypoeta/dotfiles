@@ -1,0 +1,16 @@
+#!/usr/bin/env fish
+
+set current ""
+if test -f ~/.cache/wal/colors.json
+  set current (jq -r '.wallpaper' ~/.cache/wal/colors.json)
+end
+
+set random (
+  find ~/pictures/wallpapers -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) \
+  | grep -vF -- "$current" | shuf -n 1
+)
+
+if test -f "$random"
+  wal -i "$random"
+  pkill -USR1 dunst # manual reload; uses custom wal template
+end

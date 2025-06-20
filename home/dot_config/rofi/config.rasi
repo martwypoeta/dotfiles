@@ -1,0 +1,28 @@
+@import "~/.cache/wal/colors-rofi-dark"
+
+* {
+  selected-normal-foreground: @background;
+}
+
+configuration {
+  font: "Terminess Nerd Font 13";
+}
+
+listview {
+  scrollbar: false;
+}
+
+#inputbar {
+  children: [entry];
+  padding: 4px;
+}
+
+#window {
+  padding: 0;
+  border: 1px;
+  border-color: @foreground;
+}
+
+#element {
+  padding: 4px;
+}

@@ -1,0 +1,14 @@
+#!/usr/bin/env fish
+
+set targets \
+  "$HOME/.steampath" \
+  "$HOME/.steampid" \
+  "$HOME/.pulse-cookie" \
+  "$HOME/.local/share/Trash"
+
+for target in $targets
+  if test -e $target -o -L $target
+    rm -rf -- $target
+    echo "removed $target"
+  end
+end

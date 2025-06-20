@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+
+import argparse
+import os
+import subprocess
+import sys
+
+STATE_DEFAULT = os.path.expanduser("~/.cache/paclock/state")
+
+
+def load_state(path):
+  if not os.path.exists(path):
+    return {}
+  with open(path) as f:
+    return dict(line.rstrip().split(" ", 1) for line in f)
+
+
+def save_state(path, data):
+  os.makedirs(os.path.dirname(path), exist_ok=True)
+  with open(path, "w") as f:
+    for pkg, ver in sorted(data.items()):
+      f.write(f"{pkg} {ver}\n")
+
+
+def summarise(prev, cur):
+  added = set(cur) - set(prev)
+  removed = set(prev) - set(cur)
+  upgraded, downgraded = set(), set()
+
+  for pkg in set(prev) & set(cur):
+    if cur[pkg] != prev[pkg]:
+      (upgraded if cur[pkg] > prev[pkg] else downgraded).add(pkg)
+
+  return {
+    "added": len(added),
+    "removed": len(removed),
+    "upgraded": len(upgraded),
+    "downgraded": len(downgraded),
+  }
+
+
+def notify(counts):
+  parts = [f"{v} {k}" for k, v in counts.items() if v]
+  msg = ", ".join(parts) if parts else "no changes"
+  subprocess.run(["notify-send", "paclock", msg])
+
+
+def main():
+  parser = argparse.ArgumentParser(
+    prog="paclock",
+    description="generate pacman lockfile",
+    formatter_class=argparse.RawDescriptionHelpFormatter
+  )
+
+  parser.add_argument(
+    "-o", "--output", metavar="FILE",
+    help="state file (default: ~/.cache/paclock/state)",
+    default=STATE_DEFAULT
+  )
+
+  parser.add_argument(
+    "-s", "--status", action="store_true",
+    help="send notify-send summary of package changes"
+  )
+
+  args = parser.parse_args()
+
+  try:
+    raw = subprocess.check_output(["pacman", "-Q"], text=True)
+  except subprocess.CalledProcessError as e:
+    print("error: failed to run pacman -Q", file=sys.stderr)
+    sys.exit(e.returncode)
+
+  current = dict(line.split(" ", 1) for line in raw.strip().splitlines())
+  previous = load_state(args.output)
+  delta = summarise(previous, current)
+
+  if args.status:
+    notify(delta)
+
+  save_state(args.output, current)
+
+
+if __name__ == "__main__":
+  main()

@@ -1,0 +1,30 @@
+#!/usr/bin/env fish
+
+cd ~/.local/share/chezmoi; or begin
+  notify-send "chezmoi-sync" "failed to change to repo directory"
+  exit 1
+end
+
+if not test -d .git
+  notify-send "chezmoi-sync" "not a git repository"
+  exit 1
+end
+
+git add -A
+
+if not git rev-parse HEAD >/dev/null 2>&1
+  notify-send "chezmoi-sync" "no commits found - skipping sync"
+  exit 0
+end
+
+set last_commit (git log -1 --format=%ct)
+set now (date +%s)
+set diff (math $now - $last_commit)
+
+if test $diff -ge 86400
+  git commit -m "configuration sync [auto]" -m "automated commit to keep repo in sync with local changes"
+  git push
+  notify-send "chezmoi-sync" "changes synchronized with remote"
+else
+  notify-send "chezmoi-sync" "no sync required (last sync was < 24h ago)"
+end
