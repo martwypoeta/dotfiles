@@ -58,7 +58,6 @@ double-conversion 3.3.1-1
 duktape 2.7.0-7
 dunst 1.12.2-1
 e2fsprogs 1.47.2-2
-easytag 2.4.3-14
 electron35 35.5.1-1
 electron36 36.5.0-1
 expat 2.7.1-1
@@ -127,7 +126,6 @@ highway 1.2.0-1
 hwdata 0.396-1
 iana-etc 20250502-1
 icu 76.1-1
-id3lib 3.8.3-19
 imagemagick 7.1.1.47-2
 iproute2 6.15.0-1
 iptables 1:1.8.11-2
@@ -259,12 +257,8 @@ libepoxy 1.5.10-3
 libev 4.33-3
 libevdev 1.13.4-1
 libevent 2.1.12-4
-libexif 0.6.25-1
 libfdk-aac 2.0.3-1
 libffi 3.5.0-1
-libfm 1.4.0-1
-libfm-extra 1.4.0-1
-libfm-gtk3 1.4.0-1
 libfontenc 1.1.8-1
 libfreeaptx 0.2.2-1
 libgcrypt 1.11.1-1
@@ -273,7 +267,6 @@ libglvnd 1.7.0-3
 libgpg-error 1.55-1
 libgudev 238-3
 libice 1.1.2-1
-libid3tag 0.16.3-2
 libidn2 2.3.7-1
 libiec61883 1.2.0-8
 libinih 58-1
@@ -397,12 +390,10 @@ llhttp 9.2.1-2
 llvm-libs 20.1.6-3
 lm_sensors 1:3.6.2-1
 lmdb 0.9.33-1
-lostfiles 4.14-1
 lsb-release 2.0.r55.a25a4fc-1
 lsof 4.99.4-1
 lua 5.4.8-2
 lv2 1.18.10-1
-lxmenu-data 0.1.6-1
 lz4 1:1.10.0-2
 lzo 2.10-5
 m4 1.4.20-1
@@ -410,7 +401,6 @@ mailcap 2.1.54-2
 maim 5.8.0-3
 make 4.4.1-2
 md4c 0.5.2-1
-menu-cache 1.1.1-1
 mesa 1:25.1.3-3
 minizip 1:1.3.1-2
 mkinitcpio 39.2-3
@@ -419,7 +409,6 @@ mpdecimal 4.0.1-1
 mpfr 4.2.2-1
 mpg123 1.33.0-1
 mtdev 1.1.7-1
-nano 8.5-1
 ncurses 6.5-4
 nettle 3.10.1-1
 noto-fonts 1:2025.06.01-1
@@ -435,7 +424,6 @@ openjpeg2 2.5.3-1
 openssh 10.0p1-3
 openssl 3.5.0-1
 opus 1.5.2-1
-opusfile 0.12-4
 orc 0.4.41-1
 p11-kit 0.25.5-1
 pacman 7.0.0.r6.gc685ae6-6
@@ -447,7 +435,6 @@ paru 2.0.4-1
 paru-debug 2.0.4-1
 patch 2.8-1
 pciutils 3.13.0-2
-pcmanfm-gtk3 1.4.0-1
 pcre2 10.45-1
 perl 5.40.2-1
 perl-error 0.17030-1
@@ -520,7 +507,6 @@ sxhkd 0.6.2-4
 systemd 257.6-1
 systemd-libs 257.6-1
 systemd-sysvcompat 257.6-1
-taglib 2.1-1
 tar 1.35-2
 texinfo 7.2-1
 tinysparql 3.9.2-2
@@ -540,7 +526,6 @@ vmaf 3.0.0-1
 vscodium-bin 1.101.03933-1
 vulkan-icd-loader 1.4.313.0-1
 vulkan-radeon 1:25.1.3-3
-wavpack 5.8.1-1
 wayland 1.23.1-2
 webrtc-audio-processing-1 1.3-5
 which 2.23-1
@@ -587,5 +572,4 @@ zimg 3.0.5-1
 zix 0.6.2-1
 zlib 1:1.3.1-2
 zlib-ng 2.2.4-1
-zsh 5.9-5
 zstd 1.5.7-2
