@@ -14,15 +14,15 @@ listview {
 
 #inputbar {
   children: [entry];
-  padding: 4px;
+  padding: 1px;
 }
 
 #window {
-  padding: 0;
+  padding: 6px;
   border: 1px;
   border-color: @foreground;
 }
 
 #element {
-  padding: 4px;
+  padding: 1px;
 }
