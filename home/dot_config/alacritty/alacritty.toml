@@ -1,0 +1,10 @@
+[general]
+import = ["~/.cache/wal/colors-alacritty.toml"]
+
+[font]
+normal = { family = "Terminess Nerd Font" }
+size = 13
+
+[window]
+opacity = 0.95
+padding = { x = 12, y = 12 }

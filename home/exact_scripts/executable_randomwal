@@ -1,0 +1,12 @@
+#!/usr/bin/env fish
+
+set random (
+  find ~/pictures/wallpapers -type f \
+  \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' \) \
+  | shuf -n1
+)
+
+if test -f "$random"
+  wal -i "$random"
+  pkill -USR1 dunst
+end

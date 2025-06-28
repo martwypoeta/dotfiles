@@ -1,0 +1,19 @@
+#!/bin/sh
+
+setxkbmap -layout pl
+
+xset m 1 0 # flat mouse accel
+xset s off # turn off screen saver
+xset dpms 600 0 0 # turn off monitor after 10 mins
+
+# scripts
+cleanup
+randomwal
+
+# autostart
+picom --config ~/.config/picom/picom.conf &
+sxhkd &
+dunst &
+polybar &
+
+exec bspwm

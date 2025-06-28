@@ -1,0 +1,44 @@
+{
+  // theme
+  "workbench.colorTheme": "Wal",
+  "workbench.iconTheme": "bearded-icons",
+
+  // window
+  "window.zoomLevel": 1.2,
+  "window.menuBarVisibility": "compact",
+
+  // font
+  "editor.fontFamily": "Terminess Nerd Font",
+  "editor.fontSize": 15,
+  "editor.fontLigatures": true,
+  "terminal.integrated.fontSize": 15,
+
+  // ui
+  "editor.cursorStyle": "block",
+  "workbench.sideBar.location": "right",
+
+  // files
+  "files.autoSave": "afterDelay",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.formatOnSave": true,
+  "explorer.compactFolders": false,
+
+  "files.associations": {
+    "dot_xinitrc": "shellscript",
+    "executable_bspwmrc": "shellscript",
+    "sxhkdrc": "properties",
+    "**/git/config": "properties",
+  },
+
+  // declutter
+  "window.commandCenter": false,
+  "breadcrumbs.enabled": false,
+  "editor.minimap.enabled": false,
+  "editor.stickyScroll.enabled": false,
+  "editor.cursorBlinking": "solid",
+  "workbench.startupEditor": "none",
+  "workbench.navigationControl.enabled": false,
+  "workbench.layoutControl.enabled": false,
+  "explorer.confirmDelete": false,
+}

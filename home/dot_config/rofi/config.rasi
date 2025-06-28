@@ -1,0 +1,44 @@
+@import "~/.cache/wal/colors-rofi-dark"
+
+* {
+  selected-normal-foreground: @background;
+}
+
+configuration {
+  font: "Terminess Nerd Font 13";
+  drun-display-format: "{name}";
+}
+
+element-text {
+  highlight: none;
+}
+
+listview {
+  scrollbar: false;
+}
+
+#prompt {
+  margin: 0 6px 0 0;
+  padding: 1px;
+  color: @background;
+  background-color: @selected-normal-background;
+}
+
+#entry {
+  placeholder: "...";
+}
+
+#inputbar {
+  children: [prompt,entry];
+  padding: 1px;
+}
+
+#window {
+  padding: 6px;
+  border: 1px;
+  border-color: @foreground;
+}
+
+#element {
+  padding: 1px;
+}

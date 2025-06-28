@@ -1,0 +1,19 @@
+#!/usr/bin/env fish
+
+cleanup # remove unnecesary files
+paclock -o ~/dotfiles/pacman.lock -s # generate paclock report
+chezmoi apply --force --exclude=encrypted # apply dotfiles
+
+# reload user session daemons
+dunstctl reload
+polybar-msg cmd restart
+
+# restart picom (compositor)
+pkill -x picom
+nohup picom --config ~/.config/picom/picom.conf >/dev/null 2>&1 &
+
+# reload keybinds and window manager
+pkill -USR1 sxhkd
+bspc wm --restart
+
+notify-send "reload" "successfully reloaded system configuration"
